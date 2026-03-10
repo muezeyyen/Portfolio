@@ -1,0 +1,443 @@
+<!DOCTYPE html>
+<html lang="de">
+
+<head>
+
+<meta charset="UTF-8">
+<title>Portfolio</title>
+
+<script src="https://unpkg.com/scrollreveal"></script>
+
+<style>
+
+body{
+font-family:-apple-system,BlinkMacSystemFont,"Segoe UI";
+margin:0;
+background:white;
+color:#111;
+}
+
+header{
+text-align:center;
+padding:60px 20px;
+}
+
+.container{
+max-width:900px;
+margin:auto;
+padding:20px;
+}
+
+h1{
+font-size:40px;
+}
+
+h2{
+color:#b9a9f5;
+margin-top:60px;
+}
+
+.profile{
+width:140px;
+border-radius:50%;
+border:4px solid #b9a9f5;
+margin-top:20px;
+}
+
+.links a{
+margin:0 10px;
+text-decoration:none;
+color:#b9a9f5;
+font-weight:600;
+}
+
+.timeline{
+position:relative;
+padding-left:30px;
+margin-top:40px;
+}
+
+.timeline::before{
+content:"";
+position:absolute;
+left:10px;
+top:0;
+bottom:0;
+width:2px;
+background:#b9a9f5;
+}
+
+.event{
+position:relative;
+margin-bottom:40px;
+}
+
+.event::before{
+content:"";
+position:absolute;
+left:-22px;
+top:5px;
+width:14px;
+height:14px;
+border-radius:50%;
+background:#b9a9f5;
+}
+
+button{
+background:#b9a9f5;
+color:white;
+border:none;
+padding:8px 16px;
+border-radius:20px;
+cursor:pointer;
+}
+
+.gallery{
+display:none;
+margin-top:10px;
+}
+
+.slider{
+display:flex;
+gap:10px;
+overflow-x:auto;
+}
+
+.slider img{
+width:120px;
+height:120px;
+object-fit:cover;
+border-radius:15px;
+}
+
+.projects{
+display:grid;
+grid-template-columns:repeat(auto-fit,minmax(250px,1fr));
+gap:20px;
+margin-top:20px;
+}
+
+.project{
+border:1px solid #eee;
+padding:20px;
+border-radius:12px;
+transition:0.3s;
+}
+
+.project:hover{
+transform:translateY(-5px);
+box-shadow:0 10px 20px rgba(0,0,0,0.08);
+}
+
+nav{
+position:fixed;
+top:20px;
+right:20px;
+}
+
+.lang{
+cursor:pointer;
+margin-left:10px;
+color:#b9a9f5;
+font-weight:bold;
+}
+
+</style>
+
+</head>
+
+<body>
+
+<nav>
+
+<span class="lang" onclick="setLang('de')">DE</span>
+<span class="lang" onclick="setLang('en')">EN</span>
+
+</nav>
+
+<header>
+
+<h1 data-de="Hallo ich bin Müzeyyen Efsin"
+data-en="Hi I am Müzeyyen Efsin">
+Hallo ich bin Müzeyyen Efsin
+</h1>
+
+<img src="profil.jpg" class="profile">
+
+<p data-de="Willkommen auf meiner persönlichen Portfolio Website"
+data-en="Welcome to my personal portfolio website">
+Willkommen auf meiner persönlichen Portfolio Website
+</p>
+
+<div class="links">
+
+<a href="https://github.com/muezeyyen" target="_blank">GitHub</a>
+<a href="https://www.linkedin.com/in/m%C3%BCzeyyen-efsin-954a2236b/" target="_blank">LinkedIn</a>
+<a href="cv.pdf" download>CV</a>
+
+</div>
+
+</header>
+
+<div class="container">
+
+<h2 data-de="Über mich" data-en="About me">Über mich</h2>
+
+<p
+data-de="Ich habe ein großes Interesse an Technik, neuen Technologien und daran, ständig neue Fähigkeiten zu lernen."
+data-en="I am interested in technology, innovation and learning new skills.">
+
+Ich habe ein großes Interesse an Technik, neuen Technologien und daran, ständig neue Fähigkeiten zu lernen.
+
+</p>
+<a href="uebermich.pdf">
+<button>mehr über mich</button>
+</a>
+
+<h2 data-de="Mein Weg" data-en="My Journey">Mein Weg</h2>
+
+<div class="timeline">
+
+<div id="imgModal" class="modal" onclick="closeModal()">
+  <img class="modal-content" id="modalImg">
+</div>
+<div class="event">
+<h3>Shift Supervisor – Starbucks</h3>
+
+<p data-de="Berufserfahrung im Kundenservice und Teammanagement."
+data-en="Work experience in customer service and team management.">
+Berufserfahrung im Kundenservice und Teammanagement.
+</p>
+
+<p><strong>01/2023 – Heute</strong></p>
+
+</div>
+
+
+<div class="event">
+<h3 data-de="Teilnahme am Propädeutikum"
+data-en="Preparatory Semester (Propädeutikum)">
+Teilnahme am Propädeutikum
+</h3>
+
+<p data-de="Vorbereitungssemester zur akademischen Orientierung."
+data-en="Preparatory semester for academic orientation.">
+Vorbereitungssemester zur akademischen Orientierung.
+</p>
+
+<p><strong>04.2024</strong></p>
+
+<a href="teilnahmebescheinigung.pdf">
+<button>Teilnahmebescheinigung</button>
+</a>
+</div>
+
+
+<div class="event">
+<h3 data-de="Praktikum im Bauprojekt"
+data-en="Construction Internship">
+Praktikum im Bauprojekt
+</h3>
+
+<p data-de="Erste praktische Erfahrungen im Bauprojekt."
+data-en="First practical experience in the construction field.">
+Erste praktische Erfahrungen im Bauprojekt.
+</p>
+
+<p><strong>08.2020</strong></p>
+
+
+<button onclick="toggleGallery('g1')">Fotos</button>
+
+<div class="gallery" id="g1">
+<div class="slider">
+<img src="foto1.jpg">
+<img src="foto2.jpg">
+<img src="foto3.jpg">
+</div>
+</div>
+
+</div>
+
+
+<div class="event">
+<h3 data-de="Studium an der Universität"
+data-en="University">
+Studium
+</h3>
+
+<p data-de="Zwei Semester Studium in Bautechnologie."
+data-en="Two semesters of study in construction technology.">
+Zwei Semester Studium in Bautechnologie.
+</p>
+
+<p><strong>09.2019 – 06.2020</strong></p>
+</div>
+
+
+<div class="event">
+<h3 data-de="Gymnasium"
+data-en="High School">
+Gymnasium
+</h3>
+
+<p data-de="Schulabschluss und Abitur."
+data-en="High school graduation and diploma.">
+Schulabschluss und Abitur.
+</p>
+
+<p><strong>08.2019</strong></p>
+<a href="diplom.pdf">
+<button>Diplom</button>
+</a>
+</div>
+
+</div>
+</div>
+
+</div>
+
+</div>
+
+</div>
+
+<h2 data-de="Projekte" data-en="Projects">Projekte</h2>
+
+<div class="projects">
+
+<div class="project">
+
+<h3>To-Do App</h3>
+
+<p data-de="Eine einfache Aufgabenliste mit Kategorien und Speicherung."
+data-en="A simple task manager with categories and local storage.">
+
+Eine einfache Aufgabenliste mit Kategorien und Speicherung.
+
+</p>
+
+</div>
+
+<div class="project">
+
+<h3>Portfolio Website</h3>
+
+<p data-de="Diese Website wurde mit HTML, CSS und JavaScript erstellt."
+data-en="This website was built using HTML, CSS and JavaScript.">
+
+Diese Website wurde mit HTML, CSS und JavaScript erstellt.
+
+</p>
+
+</div>
+<div class="project">
+
+<h3>Hamburg Travel Guide</h3>
+
+<p data-de="Eine einfache Website mit Informationen über Sehenswürdigkeiten in Hamburg."
+data-en="A simple website with information about places to visit in Hamburg.">
+
+Eine einfache Website mit Informationen über Sehenswürdigkeiten in Hamburg.
+
+</p>
+
+</div>
+</div>
+
+<h2 data-de="Fähigkeiten" data-en="Skills">Fähigkeiten</h2>
+
+<ul>
+
+<li>C</li>
+<li>HTML</li>
+<li>CSS</li>
+<li>JavaScript</li>
+
+</ul>
+<h2 data-de="Sprachen" data-en="Languages">Sprachen</h2>
+
+<ul>
+
+<li data-de="Deutsch – fließend"
+data-en="German – fluent">
+
+Deutsch – fließend
+
+</li>
+
+<li data-de="Englisch – gut"
+data-en="English – good">
+
+Englisch – gut
+
+</li>
+
+<li data-de="Türkisch – Muttersprache"
+data-en="Turkish – native">
+
+Türkisch – Muttersprache
+
+</li>
+
+<li data-de="Kurdisch – Muttersprache"
+data-en="Kurdish – native">
+
+Kurdisch – Muttersprache
+
+</li>
+
+</ul>
+
+<h2 data-de="Zertifikate" data-en="Certificates">Zertifikate</h2>
+
+<div class="project">
+
+<h3>Google IT Support – Technical Support Fundamentals</h3>
+
+<p
+data-de="Grundlagen von IT Support, Netzwerken und Troubleshooting."
+data-en="Fundamentals of IT support, networking and troubleshooting.">
+
+Grundlagen von IT Support, Netzwerken und Troubleshooting.
+
+</p>
+
+<a href="certificate.pdf"><button>Zertifikat</button></a>
+
+</div>
+
+<h2 data-de="Kontakt" data-en="Contact">Kontakt</h2>
+
+<p>Email: efsin@icloud.com</p>
+<p>Handynummer: +49 15162360338</p>
+</div>
+
+<script>
+
+function toggleGallery(id){
+
+let g=document.getElementById(id)
+
+g.style.display=g.style.display==="block"?"none":"block"
+
+}
+
+function setLang(lang){
+
+document.querySelectorAll("[data-de]").forEach(el=>{
+
+el.innerText=el.getAttribute("data-"+lang)
+
+})
+
+}
+
+ScrollReveal().reveal('h2',{distance:'40px',duration:1000})
+ScrollReveal().reveal('.event',{distance:'40px',duration:1000})
+ScrollReveal().reveal('.project',{distance:'40px',duration:1000})
+
+</script>
+
+</body>
+
+</html>
