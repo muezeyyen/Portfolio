@@ -3,6 +3,8 @@
 
 <head>
 
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css">
+
 <meta charset="UTF-8">
 <title>Portfolio</title>
 
@@ -36,6 +38,8 @@ font-size:40px;
 h2{
 color:#b9a9f5;
 margin-top:60px;
+font-size:24px;
+letter-spacing:0.5px;
 }
 
 .profile{
@@ -141,6 +145,45 @@ cursor:pointer;
 margin-left:10px;
 color:#b9a9f5;
 font-weight:bold;
+}
+
+.skills-grid{
+display:grid;
+grid-template-columns:repeat(auto-fit,minmax(250px,1fr));
+gap:20px;
+margin-top:20px;
+}
+
+.skill-card{
+background:white;
+border:1px solid #eee;
+padding:20px;
+border-radius:16px;
+transition:0.3s;
+box-shadow:0 5px 15px rgba(0,0,0,0.05);
+cursor:pointer;
+}
+
+.skill-card:hover{
+transform:translateY(-8px) scale(1.02);
+box-shadow:0 20px 40px rgba(0,0,0,0.12);
+border:1px solid #b9a9f5;
+}
+
+.skill-card h3{
+margin-bottom:10px;
+color:#b9a9f5;
+font-size:18px;
+}
+
+.skill-card ul{
+padding-left:18px;
+line-height:1.6;
+}
+
+.skill-card i{
+margin-right:8px;
+color:#b9a9f5;
 }
 
 </style>
@@ -346,17 +389,177 @@ Eine einfache Website mit Informationen über Sehenswürdigkeiten in Hamburg.
 
 </div>
 </div>
+<h2 data-de="Fachliche Kenntnisse" data-en="Technical Skills">
+Fachliche Kenntnisse
+</h2>
 
-<h2 data-de="Fähigkeiten" data-en="Skills">Fähigkeiten</h2>
+<div class="skills-grid">
+
+<div class="skill-card">
+
+<h3 
+data-de="IT-Support"
+data-en="IT Support">
+<i class="fas fa-headset"></i> IT-Support
+</h3>
 
 <ul>
+<li 
+data-de="Fehleranalyse"
+data-en="Error analysis">
+Fehleranalyse
+</li>
 
-<li>C</li>
-<li>HTML</li>
-<li>CSS</li>
-<li>JavaScript</li>
+<li 
+data-de="grundlegendes Troubleshooting"
+data-en="basic troubleshooting">
+grundlegendes Troubleshooting
+</li>
 
+<li 
+data-de="Anwenderunterstützung"
+data-en="user support">
+Anwenderunterstützung
+</li>
 </ul>
+
+</div>
+
+
+<div class="skill-card">
+
+<h3 
+data-de="Betriebssysteme"
+data-en="Operating Systems">
+<i class="fas fa-desktop"></i> Betriebssysteme
+</h3>
+
+<ul>
+<li>Windows</li>
+
+<li 
+data-de="Linux Grundkenntnisse"
+data-en="basic Linux knowledge">
+Linux (Grundkenntnisse)
+</li>
+</ul>
+
+</div>
+
+
+<div class="skill-card">
+
+<h3 
+data-de="Web & Technik"
+data-en="Web & Technology">
+<i class="fas fa-code"></i> Web & Technik
+</h3>
+
+<ul>
+<li 
+data-de="Portfolio Website Erstellung"
+data-en="portfolio website creation">
+Portfolio Website
+</li>
+
+<li 
+data-de="HTML / CSS Grundlagen"
+data-en="HTML / CSS basics">
+HTML / CSS Grundlagen
+</li>
+
+<li 
+data-de="technisches Verständnis"
+data-en="technical understanding">
+Technisches Verständnis
+</li>
+</ul>
+
+</div>
+
+
+<div class="skill-card">
+
+<h3 
+data-de="Hardware & Software"
+data-en="Hardware & Software">
+<i class="fas fa-microchip"></i> Hardware & Software
+</h3>
+
+<ul>
+<li 
+data-de="Computerhardware Grundlagen"
+data-en="computer hardware basics">
+Computerhardware Grundlagen
+</li>
+
+<li 
+data-de="Installation und Einrichtung"
+data-en="installation and setup">
+Installation & Einrichtung
+</li>
+</ul>
+
+</div>
+
+
+<div class="skill-card">
+
+<h3 
+data-de="Arbeitsweise"
+data-en="Working Style">
+<i class="fas fa-brain"></i> Arbeitsweise
+</h3>
+
+<ul>
+<li 
+data-de="analytisches Denken"
+data-en="analytical thinking">
+analytisches Denken
+</li>
+
+<li 
+data-de="schnelles Lernen"
+data-en="fast learning ability">
+schnelles Lernen
+</li>
+
+<li 
+data-de="selbstständiges Arbeiten"
+data-en="independent working">
+selbstständig arbeiten
+</li>
+</ul>
+
+</div>
+
+
+<div class="skill-card">
+
+<h3 
+data-de="Netzwerke"
+data-en="Networks">
+<i class="fas fa-network-wired"></i> Netzwerke
+</h3>
+
+<ul>
+<li 
+data-de="Netzwerk Grundlagen"
+data-en="network basics">
+Netzwerk Grundlagen
+</li>
+
+<li 
+data-de="TCP/IP und DNS Grundlagen"
+data-en="TCP/IP and DNS basics">
+TCP/IP & DNS (Basics)
+</li>
+</ul>
+
+</div>
+
+</div>
+
 <h2 data-de="Sprachen" data-en="Languages">Sprachen</h2>
 
 <ul>
@@ -441,9 +644,10 @@ el.innerText=el.getAttribute("data-"+lang)
 
 }
 
-ScrollReveal().reveal('h2',{distance:'40px',duration:1000})
-ScrollReveal().reveal('.event',{distance:'40px',duration:1000})
-ScrollReveal().reveal('.project',{distance:'40px',duration:1000})
+ScrollReveal().reveal('h2',{distance:'40px',duration:1000,interval:200})
+ScrollReveal().reveal('.event',{distance:'40px',duration:1000,interval:200})
+ScrollReveal().reveal('.project',{distance:'40px',duration:1000,interval:200})
+ScrollReveal().reveal('.skill-card',{distance:'40px',duration:1000,interval:200})
 
 </script>
 
